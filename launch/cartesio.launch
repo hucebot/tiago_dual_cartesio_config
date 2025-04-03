@@ -58,5 +58,20 @@
     <!-- <arg name="use_postural_gui" default="true"/>
     <node if="$(arg use_postural_gui)" pkg="cartesian_interface" type="postural_gui" name="postural_gui"/> -->
     
-    <node pkg="tf" type="static_transform_publisher" name="ci_world_to_odom" args="0 0 0 0 0 0 /odom /ci/world 500"/>       
+    <node pkg="tf" type="static_transform_publisher" name="ci_world_to_odom" args="0 0 0 0 0 0 /odom /ci/world 500"/>  
+    
+    <node pkg="mesh_viz" type="ps_pub" name="ps_pub"/> 
+    
+    
+    <!-- Obstacle with interactive marker -->     
+      <node name="mesh_viz_floor" pkg="mesh_viz" type="mesh_viz_node" output="screen">
+        <param name="mesh_path" value="$(find cartesio_planning)/examples/utils/simple_box.stl" />
+        <param name="scale_x" type="double" value="2."/>
+        <param name="scale_y" type="double" value="1.5"/>
+        <param name="scale_z" type="double" value=".1"/>
+        <param name="frame_id" value="ci/world"/>
+        <param name="name_id" value="floor"/>
+        <param name="show_control_axis" type="bool" value="true"/>
+        <remap from="mesh_viz_floor/floor" to="cartesian/collision_objects"/>
+  </node>    
 </launch>
