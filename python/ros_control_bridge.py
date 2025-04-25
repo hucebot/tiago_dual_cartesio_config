@@ -188,6 +188,12 @@ def control_initiator_cb(msg):
     if not msg.data:
         exit_ = True
 
+def reset_initial_state_cb(msg):
+    if msg.data:
+        rospy.loginfo("Resetting initial configuration")
+        data = rospy.wait_for_message("joint_states", JointState, timeout=5)
+        set_initial_configuration(data)
+        rospy.loginfo("Initial configuration reset")
 
 if __name__ == "__main__":
     rospy.init_node("ros_control_bridge", anonymous=False)
@@ -298,6 +304,9 @@ if __name__ == "__main__":
     rospy.Subscriber(
         "/streamdeck/ros_control_bridge_initiator", Bool, control_initiator_cb
     )
+
+    # Set up a subscriber to reset the initial configuration
+    rospy.Subscriber("/streamdeck/ros_control_bridge_reset", Bool, reset_initial_state_cb)
 
     # Get (possible) 'wrist_force_limit' parameter and set up ft subscribers for emergency
     if rospy.has_param("~wrist_force_limit"):
