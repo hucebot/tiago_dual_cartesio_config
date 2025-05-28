@@ -97,6 +97,7 @@ Collision:
     collision_urdf_path: $(rospack find tiago_dual_cartesio_config)/capsules/urdf/tiago_dual_capsules.rviz
     collision_srdf_path: $(rospack find tiago_dual_cartesio_config)/capsules/srdf/tiago_dual_capsules.srdf
     env_collision_links: ["gripper_left_link", "gripper_left_left_finger_link", "gripper_left_right_finger_link", "gripper_right_link", "gripper_right_left_finger_link", "gripper_right_right_finger_link"]
+    #disabled_joints: [reference@v0, reference@v1, reference@v2, reference@v3, reference@v4, reference@v5]
     pairs:
      - [arm_left_3_link, base_link]
      - [arm_left_5_link, base_link]
