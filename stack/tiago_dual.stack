@@ -3,7 +3,8 @@ solver_options:
     back_end: "qpoases"
 
 stack:
-    - ["Lee", "Ree", "Base"]
+    - ["Base"]
+    - ["Lee", "Ree"]
     - ["Postural"]
 
 constraints: ["JointLimits", "VelocityLimits", "Base2D", "Collision"]

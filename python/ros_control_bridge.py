@@ -237,13 +237,16 @@ if __name__ == "__main__":
     # rg_curr_lim_pub.publish(rg_curr_lim_msg)
 
     # Set up command publishers and msgs
+
+    logging = "_logging"
+
     head_cmd_pub_ = rospy.Publisher(
-        "head_controller/command", JointTrajectory, queue_size=1
+        "head_controller/command"+logging, JointTrajectory, queue_size=1
     )
     head_cmd_msg_ = init_cmd_msg(head_cmd_msg_, ["head_1_joint", "head_2_joint"])
 
     left_arm_cmd_pub_ = rospy.Publisher(
-        "/arm_left_controller/command", JointTrajectory, queue_size=1
+        "/arm_left_controller/command"+logging, JointTrajectory, queue_size=1
     )
     left_arm_cmd_msg_ = init_cmd_msg(
         left_arm_cmd_msg_,
@@ -259,7 +262,7 @@ if __name__ == "__main__":
     )
 
     right_arm_cmd_pub_ = rospy.Publisher(
-        "/arm_right_controller/command", JointTrajectory, queue_size=1
+        "/arm_right_controller/command"+logging, JointTrajectory, queue_size=1
     )
     right_arm_cmd_msg_ = init_cmd_msg(
         right_arm_cmd_msg_,
@@ -275,12 +278,12 @@ if __name__ == "__main__":
     )
 
     torso_cmd_pub_ = rospy.Publisher(
-        "/torso_controller/command", JointTrajectory, queue_size=1
+        "/torso_controller/command"+logging, JointTrajectory, queue_size=1
     )
     torso_cmd_msg_ = init_cmd_msg(torso_cmd_msg_, ["torso_lift_joint"])
 
     mobile_base_cmd_pub_ = rospy.Publisher(
-        "/mobile_base_controller/cmd_vel", Twist, queue_size=1
+        "/mobile_base_controller/cmd_vel"+logging, Twist, queue_size=1
     )
 
     # Get (possible) enable/disable parameter and set up service to change it

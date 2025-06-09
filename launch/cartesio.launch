@@ -57,6 +57,27 @@
     
     <!-- <arg name="use_postural_gui" default="true"/>
     <node if="$(arg use_postural_gui)" pkg="cartesian_interface" type="postural_gui" name="postural_gui"/> -->
+
+    <!-- 1.57079632679 0.0 0.785398 -->
     
-    <node pkg="tf" type="static_transform_publisher" name="ci_world_to_odom" args="0 0 0 0 0 0 /odom /ci/world 500"/>       
+    <node pkg="tf" type="static_transform_publisher" name="camera_to_robot" args="0.165 0.00 1.325 -1.570796 0.00 -2.35619 ci/world tiago_head_camera_color_optical_frame 10" />
+    
+    <node pkg="tf" type="static_transform_publisher" name="ciworld_to_world" args="0 0 0 0 0.0 0  world ci/world 10" />
+
+    <!-- <node pkg="mesh_viz" type="ps_pub" name="ps_pub">
+        <param name="_intermediate_frame" value="ci/world"/>
+        <param name="_final_frame" value="world"/>
+    </node> -->
+    
+    <!-- Obstacle with interactive marker -->     
+      <!-- <node name="mesh_viz_floor" pkg="mesh_viz" type="mesh_viz_node" output="screen">
+        <param name="mesh_path" value="/ros_ws/src/cartesio_collision_avoidance/meshes/obstacle.stl" />
+        <param name="scale_x" type="double" value="1.0"/>
+        <param name="scale_y" type="double" value="1.0"/>
+        <param name="scale_z" type="double" value="1.0"/>
+        <param name="frame_id" value="tiago_head_camera_color_optical_frame"/>
+        <param name="name_id" value="floor"/>
+        <param name="show_control_axis" type="bool" value="true"/>
+        <remap from="mesh_viz_floor/floor" to="cartesian/collision_objects"/>
+      </node>     -->
 </launch>

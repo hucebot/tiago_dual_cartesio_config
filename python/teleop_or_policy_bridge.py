@@ -184,16 +184,16 @@ if __name__ == "__main__":
     camera_frame_pub = {}
     camera_pose_msg = {}
     camera_frame_seq = {}
-    for camera in cameras:
-        camera_frame_pub[camera] = rospy.Publisher(
-            f"{camera}_color_optical_frame/pose", PoseStamped, queue_size=1
-        )
-        camera_pose_msg[camera] = PoseStamped()
-        camera_frame_seq[camera] = 0
+    # for camera in cameras:
+    #     camera_frame_pub[camera] = rospy.Publisher(
+    #         f"{camera}_color_optical_frame/pose", PoseStamped, queue_size=1
+    #     )
+    #     camera_pose_msg[camera] = PoseStamped()
+    #     camera_frame_seq[camera] = 0
 
     # Subscribe to teleop topics -----------------------------------------------------------------
-    rospy.Subscriber("teleop_gripper", PointStamped, teleop_gripper_cb)
-    rospy.Subscriber("teleop_pose", PoseStamped, teleop_pose_cb)
+    rospy.Subscriber("/dxl_input/gripper_right", PointStamped, teleop_gripper_cb)
+    rospy.Subscriber("/dxl_input/pos_right", PoseStamped, teleop_pose_cb)
 
     rospy.loginfo("Teleop/policy bridge initialized")
 
@@ -241,27 +241,27 @@ if __name__ == "__main__":
             goal_gripper_pose_seq += 1
         except Exception as err:
             print(err)
-        for camera in cameras:
-            try:
-                t = tf_buffer.lookup_transform(
-                    "base_link",
-                    f"{camera}_color_optical_frame",
-                    rospy.Time(),
-                )
-                camera_pose_msg[camera].pose.position.x = t.transform.translation.x
-                camera_pose_msg[camera].pose.position.y = t.transform.translation.y
-                camera_pose_msg[camera].pose.position.z = t.transform.translation.z
-                camera_pose_msg[camera].pose.orientation.x = t.transform.rotation.x
-                camera_pose_msg[camera].pose.orientation.y = t.transform.rotation.y
-                camera_pose_msg[camera].pose.orientation.z = t.transform.rotation.z
-                camera_pose_msg[camera].pose.orientation.w = t.transform.rotation.w
-                camera_pose_msg[camera].header.seq = camera_frame_seq[camera]
-                read_gripper_pose_msg.header.stamp = t.header.stamp
-                camera_pose_msg[camera].header.frame_id = "base_link"
-                camera_frame_pub[camera].publish(camera_pose_msg[camera])
-                camera_frame_seq[camera] += 1
-            except Exception as err:
-                print(err)
+        # for camera in cameras:
+        #     try:
+        #         t = tf_buffer.lookup_transform(
+        #             "base_link",
+        #             f"{camera}_color_optical_frame",
+        #             rospy.Time(),
+        #         )
+        #         camera_pose_msg[camera].pose.position.x = t.transform.translation.x
+        #         camera_pose_msg[camera].pose.position.y = t.transform.translation.y
+        #         camera_pose_msg[camera].pose.position.z = t.transform.translation.z
+        #         camera_pose_msg[camera].pose.orientation.x = t.transform.rotation.x
+        #         camera_pose_msg[camera].pose.orientation.y = t.transform.rotation.y
+        #         camera_pose_msg[camera].pose.orientation.z = t.transform.rotation.z
+        #         camera_pose_msg[camera].pose.orientation.w = t.transform.rotation.w
+        #         camera_pose_msg[camera].header.seq = camera_frame_seq[camera]
+        #         read_gripper_pose_msg.header.stamp = t.header.stamp
+        #         camera_pose_msg[camera].header.frame_id = "base_link"
+        #         camera_frame_pub[camera].publish(camera_pose_msg[camera])
+        #         camera_frame_seq[camera] += 1
+        #     except Exception as err:
+        #         print(err)
 
         # Send to the robot the last received commands -------------------------------------------
         with mutex_gripper:
