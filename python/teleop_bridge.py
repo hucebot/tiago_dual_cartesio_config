@@ -12,7 +12,6 @@ initial_ref = PoseStamped()
 initialized = False
 controlled_frame = str()
 
-
 def callback(data: PoseStamped):
     global initial_ref, initialized, controlled_frame, pose_initial, ci, pose_initial
 
@@ -51,14 +50,14 @@ def callback(data: PoseStamped):
         )
         data_m = Affine3()
         data_m.translation = np.array(
-            [data.pose.position.x, data.pose.position.y, data.pose.position.z]
+            [data.pose.position.x, data.pose.position.y, data.pose.position.z - 0.08]
         )
         data_m.linear = r.as_matrix()
 
         ref_m = pose_initial * data_m_init.inverse() * data_m
 
         pose_ref = Affine3()
-        pose_ref.translation = ref_m.translation
+        pose_ref.translation = data_m.translation
         pose_ref.linear = data_m.linear
 
         ci.setPoseReference(controlled_frame, pose_ref)

@@ -60,7 +60,7 @@
 
     <!-- 1.57079632679 0.0 0.785398 -->
     
-    <node pkg="tf" type="static_transform_publisher" name="camera_to_robot" args="0.165 0.00 1.325 -1.570796 0.00 -2.35619 ci/world tiago_head_camera_color_optical_frame 10" />
+    <node pkg="tf" type="static_transform_publisher" name="camera_to_robot" args="0.155 -0.02 1.330 -1.570796 0.00 -2.35619 ci/world tiago_head_camera_color_optical_frame 10" />
     
     <node pkg="tf" type="static_transform_publisher" name="ciworld_to_world" args="0 0 0 0 0.0 0  world ci/world 10" />
 
