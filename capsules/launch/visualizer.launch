@@ -1,13 +1,21 @@
 <launch>
+      <arg name="gui" default="false" />
 
-<param name="robot_description" textfile="$(find tiago_dual_cartesio_config)/capsules/urdf/tiago_dual_capsules.rviz"/>
+      <group if="$(var gui)">
+  	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui">
+		<param name="publish_default_efforts" value="True"/>
+		<param name="use_gui" value="$(var gui)"/>
+		<param name="rate" value="50.0"/>
+     	</node>
 
-<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
-	<param name="publish_frequency" type="double" value="250.0" />
-</node>
-
-<node type="rviz" name="rviz" pkg="rviz" args="-d $(find tiago_dual_cartesio_config)/capsules/launch/viz.rviz"/>
-
-<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+     </group>
+     
+    <!-- start robot state publisher -->
+    <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher" output="screen" args="--ros-args --log-level ERROR">
+        <param name="publish_frequency" value="250.0" />
+        <param name='robot_description' value="$(command 'cat $(find-pkg-share tiago_dual_cartesio_config)/capsules/urdf/tiago_dual_capsules.rviz')"/> 
+    </node> 
+    
+    <node exec="rviz2" name="rviz2" pkg="rviz2" args="-d $(find-pkg-share tiago_dual_cartesio_config)/capsules/launch/viz.rviz"/>
 
 </launch>
