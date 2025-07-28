@@ -104,13 +104,13 @@
       <mass value="0.28922"/>
       <inertia ixx="2.628919e-05" ixy="2.4298e-07" ixz="-3.68129e-06" iyy="3.374542e-05" iyz="-1.33e-08" izz="5.832599e-05"/>
     </inertial>
-    <visual>
+    <!-- visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <geometry>
         <mesh filename="package://pmb2_description/meshes/sensors/sick_tim551.stl"/>
       </geometry>
       <material name="DarkGrey"/>
-    </visual>
+    </visual-->
   </link>
   <joint name="base_rear_laser_joint" type="fixed">
     <origin xyz="-0.27512 0.18297 0.13244" rpy="-3.141592653589793 0.0 2.356194490192345"/>
@@ -159,13 +159,13 @@
       <mass value="0.28922"/>
       <inertia ixx="2.628919e-05" ixy="2.4298e-07" ixz="-3.68129e-06" iyy="3.374542e-05" iyz="-1.33e-08" izz="5.832599e-05"/>
     </inertial>
-    <visual>
+    <!-- visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <geometry>
         <mesh filename="package://pmb2_description/meshes/sensors/sick_tim551.stl"/>
       </geometry>
       <material name="DarkGrey"/>
-    </visual>
+    </visual -->
   </link>
   <joint name="base_front_laser_joint" type="fixed">
     <origin xyz="0.27512 -0.18297 0.13244" rpy="-3.141592653589793 0.0 -0.7853981633974483"/>
