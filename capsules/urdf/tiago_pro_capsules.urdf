@@ -1367,7 +1367,7 @@
       <inertia ixx="7.4666667e-07" ixy="0.0" ixz="0.0" iyy="7.4666667e-07" iyz="0.0" izz="1.6e-07"/>
     </inertial>
   </link>
-  <joint name="gripper_left_finger_joint" type="prismatic">
+  <joint name="gripper_left_finger_joint" type="fixed">
     <origin xyz="-0.0178 0.0088 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="gripper_left_base_finger_left_link"/>
@@ -1425,7 +1425,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_left_inner_finger_left_joint" type="revolute">
+  <joint name="gripper_left_inner_finger_left_joint" type="fixed">
     <origin xyz="-0.01482273272 0.00453176142 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_left_base_finger_left_link"/>
@@ -1455,7 +1455,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_left_outer_finger_left_joint" type="revolute">
+  <joint name="gripper_left_outer_finger_left_joint" type="fixed">
     <origin xyz="0.0 -0.0288 0.07565" rpy="1.5708 0.0 -1.5708"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_left_base_link"/>
@@ -1485,7 +1485,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_left_fingertip_left_joint" type="revolute">
+  <joint name="gripper_left_fingertip_left_joint" type="fixed">
     <origin xyz="0.0 0.05 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_left_inner_finger_left_link"/>
@@ -1500,7 +1500,7 @@
       <inertia ixx="7.4666667e-07" ixy="0.0" ixz="0.0" iyy="7.4666667e-07" iyz="0.0" izz="1.6e-07"/>
     </inertial>
   </link>
-  <joint name="gripper_left_finger_right_joint" type="prismatic">
+  <joint name="gripper_left_finger_right_joint" type="fixed">
     <origin xyz="-0.0178 0.0088 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="gripper_left_base_finger_right_link"/>
@@ -1558,7 +1558,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_left_inner_finger_right_joint" type="revolute">
+  <joint name="gripper_left_inner_finger_right_joint" type="fixed">
     <origin xyz="-0.01482273272 0.00453176142 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_left_base_finger_right_link"/>
@@ -1588,7 +1588,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_left_outer_finger_right_joint" type="revolute">
+  <joint name="gripper_left_outer_finger_right_joint" type="fixed">
     <origin xyz="0.0 0.0288 0.07565" rpy="1.5708 0.0 1.5708"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_left_base_link"/>
@@ -1618,7 +1618,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_left_fingertip_right_joint" type="revolute">
+  <joint name="gripper_left_fingertip_right_joint" type="fixed">
     <origin xyz="0.0 0.05 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_left_inner_finger_right_link"/>
@@ -1988,7 +1988,7 @@
       <inertia ixx="7.4666667e-07" ixy="0.0" ixz="0.0" iyy="7.4666667e-07" iyz="0.0" izz="1.6e-07"/>
     </inertial>
   </link>
-  <joint name="gripper_right_finger_joint" type="prismatic">
+  <joint name="gripper_right_finger_joint" type="fixed">
     <origin xyz="-0.0178 0.0088 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="gripper_right_base_finger_left_link"/>
@@ -2046,7 +2046,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_right_inner_finger_left_joint" type="revolute">
+  <joint name="gripper_right_inner_finger_left_joint" type="fixed">
     <origin xyz="-0.01482273272 0.00453176142 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_right_base_finger_left_link"/>
@@ -2076,7 +2076,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_right_outer_finger_left_joint" type="revolute">
+  <joint name="gripper_right_outer_finger_left_joint" type="fixed">
     <origin xyz="0.0 -0.0288 0.07565" rpy="1.5708 0.0 -1.5708"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_right_base_link"/>
@@ -2106,7 +2106,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_right_fingertip_left_joint" type="revolute">
+  <joint name="gripper_right_fingertip_left_joint" type="fixed">
     <origin xyz="0.0 0.05 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_right_inner_finger_left_link"/>
@@ -2121,7 +2121,7 @@
       <inertia ixx="7.4666667e-07" ixy="0.0" ixz="0.0" iyy="7.4666667e-07" iyz="0.0" izz="1.6e-07"/>
     </inertial>
   </link>
-  <joint name="gripper_right_finger_right_joint" type="prismatic">
+  <joint name="gripper_right_finger_right_joint" type="fixed">
     <origin xyz="-0.0178 0.0088 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="gripper_right_base_finger_right_link"/>
@@ -2179,7 +2179,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_right_inner_finger_right_joint" type="revolute">
+  <joint name="gripper_right_inner_finger_right_joint" type="fixed">
     <origin xyz="-0.01482273272 0.00453176142 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_right_base_finger_right_link"/>
@@ -2209,7 +2209,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_right_outer_finger_right_joint" type="revolute">
+  <joint name="gripper_right_outer_finger_right_joint" type="fixed">
     <origin xyz="0.0 0.0288 0.07565" rpy="1.5708 0.0 1.5708"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_right_base_link"/>
@@ -2239,7 +2239,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="gripper_right_fingertip_right_joint" type="revolute">
+  <joint name="gripper_right_fingertip_right_joint" type="fixed">
     <origin xyz="0.0 0.05 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="gripper_right_inner_finger_right_link"/>
